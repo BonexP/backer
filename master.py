@@ -2,9 +2,9 @@ import yaml
 from worker import transer, zipper
 
 with open("config.yml", "r") as f:
-    y = yaml.load(f, yaml.Loader)
-    print(y)
-    for item in y:
+    jobs = yaml.load(f, yaml.Loader)
+    print(jobs)
+    for item in jobs:
         print(item)
         # need zip?
         if item["zip"]:
