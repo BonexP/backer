@@ -33,6 +33,8 @@ def requestswebdav(config,localfile,remotefile):
     r = requests.put(url+remotefile, files={"archive": files},auth = HTTPBasicAuth(config['username'], config['password']))
     print(r.text)
 
+webdav=webdavclient
+
 if __name__ == '__main__':
-    server={'server':'http://192.168.3.14:8091/','username':'admin','password':'admin'}
-    webdavclient(server, 'config.yml', 'legado/hi.zip')
+    server={'server':'http://192.168.3.13:5244/dav/','username':'admin','password':'iamadmin'}
+    webdavclient(server, 'config.yml', 'hdd/backups/hi.zip')
