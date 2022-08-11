@@ -3,6 +3,12 @@ pybaccker
 2. transer to tasnslate file to remote backer
 
 
+## requirement
+
+```bash
+pip install webdavclient3
+```
+
 dav(sort by recommendation):
 
 ||alist on server|go-webdav on rpi|

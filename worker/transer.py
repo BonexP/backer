@@ -1,19 +1,7 @@
 import requests
 from requests.auth import HTTPBasicAuth
-import easywebdav
-easywebdav.basestring = str
-easywebdav.client.basestring = str
 
 from webdav3.client import Client
-def easewebdav(config,localfile,remotefile):
-
-    # Start off by creating a client object. Username and
-    # password may be omitted if no authentication is needed.
-    webdav = easywebdav.connect(config['server'], username=config['username'], password=config['password'])
-    # Do some stuff:
-    # webdav.upload(localfile,remotefile)
-    webdav.mkdir('job')
-    webdav.upload(localfile,remotefile)
 
 def webdavclient(config,localfile,remotefile):
     options = {
