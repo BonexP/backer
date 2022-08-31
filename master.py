@@ -1,6 +1,7 @@
-import yaml
+import yaml,time
 from worker import transer, zipper
 
+t=time
 with open("config.yml", "r") as f:
     jobs = yaml.load(f, yaml.Loader)
     print(jobs)
@@ -9,10 +10,11 @@ with open("config.yml", "r") as f:
         # need zip?
         if item["zip"]:
             if item["type"] == "singlefile":
-                item["local"] = zipper.singlefile(item["local"], item["zipoutput"])
+                outname=item["zipoutput"]
+                item["local"] = zipper.singlefile(item["local"], eval(f"f'{outname}'"))
                 item["remote"]+=".zip"
             elif item["type"] == "folder":
-                item["local"] = zipper.folder(item["local"], item["zipoutput"])
+                item["local"] = zipper.folder(item["local"], eval(f"f'{outname}'"))
                 item["remote"]+=".zip"
         # trasfer
         if item["remotedrive"]=="webdav":
