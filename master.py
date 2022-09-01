@@ -2,7 +2,7 @@ import yaml,time
 from worker import transer, zipper
 import logging
 
-logging.basicConfig(level=logging.INFO,filename='worker.log',encoding='utf-8')
+logging.basicConfig(level=logging.INFO,filename='worker.log')
 
 t=time
 with open("config.yml", "r") as f:
