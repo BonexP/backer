@@ -1,5 +1,8 @@
 import yaml,time
 from worker import transer, zipper
+import logging
+
+logging.basicConfig(level=logging.INFO,filename='worker.log',encoding='utf-8')
 
 t=time
 with open("config.yml", "r") as f:
@@ -7,6 +10,7 @@ with open("config.yml", "r") as f:
     print(jobs)
     for item in jobs:
         print(item)
+        logging.info(f"item type : {item['type']}, localfile : {item['local']}, zipoutput : {item['zipoutput']}, upload : {item['remote']}")
         # need zip?
         if item["zip"]:
             if item["type"] == "singlefile":
@@ -25,5 +29,7 @@ with open("config.yml", "r") as f:
                 item["remote"]+=".zip"
         # trasfer
         print(item)
+        logging.info(f"item type : {item['type']}, localfile : {item['local']}, zipoutput : {item['zipoutput']}, upload : {item['remote']}")
+
         if item["remotedrive"]=="webdav":
             transer.webdav(item["dav"], item["local"], item["remote"])
