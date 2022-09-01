@@ -2,7 +2,7 @@ import zipfile
 import shutil
 
 def singlefile(filename,outputfile):
-    with zipfile.ZipFile(outputfile+'.zip', mode="w") as archive: 
+    with zipfile.ZipFile(outputfile+'.zip', mode="w",compression=zipfile.ZIP_DEFLATED) as archive: 
         archive.write(filename)
     return outputfile+'.zip'
 def folder(folder,outputfile):
