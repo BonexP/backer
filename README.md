@@ -9,7 +9,7 @@ pybaccker
 pip install webdavclient3
 ```
 
-dav(sort by recommendation):
+dav(test by myself,sort by recommendation):
 
 ||alist on server|go-webdav on rpi|
 |-|-|-|
@@ -26,12 +26,15 @@ to use it, you need to fill the config file:
   zip: True # of False
   # zipped file name output without .zip postfix
   # not used if zip is False
-  zipoutput: configzipped
+  # and it has limited support for expression like {time.strftime("%Y-%m-%d-%H-%M",time.localtime())}
+  # but to define in master.py
+  zipoutput: optionalpath/configzipped
   remotedrive: webdav # only webdav now
   dav: 
     server: 'http(s)://host:port/balabala'
     username: 'yourname'
     password: 'password'
+  # remote filename updated
   remote: 'path/to/newbeee.file'
 
 ```

@@ -11,11 +11,19 @@ with open("config.yml", "r") as f:
         if item["zip"]:
             if item["type"] == "singlefile":
                 outname=item["zipoutput"]
-                item["local"] = zipper.singlefile(item["local"], eval(f"f'{outname}'"))
+                item["zipoutput"]=eval(f"f'{outname}'")
+                item["local"] = zipper.singlefile(item["local"],item["zipoutput"])
+                remotename=item["remote"]
+                item["remote"]=eval(f"f'{remotename}'")
                 item["remote"]+=".zip"
             elif item["type"] == "folder":
-                item["local"] = zipper.folder(item["local"], eval(f"f'{outname}'"))
+                outname=item["zipoutput"]
+                item["zipoutput"]=eval(f"f'{outname}'")
+                item["local"] = zipper.folder(item["local"], item["zipoutput"])
+                remotename=item["remote"]
+                item["remote"]=eval(f"f'{remotename}'")
                 item["remote"]+=".zip"
         # trasfer
+        print(item)
         if item["remotedrive"]=="webdav":
             transer.webdav(item["dav"], item["local"], item["remote"])
