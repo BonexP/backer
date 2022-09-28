@@ -79,3 +79,8 @@ if your want ot do servel jobs, you can repeat more time:
   remote: 'path/to/newbeee.file'
 
 ```
+
+# future plan
+
+- [ ] simple copy from webdav to webdav(oneway sync)
+- [ ] backer utils: rss feeds backup
